@@ -1,47 +1,89 @@
----------------------------Robot Management System---------------------------
+# Autonomous Bot Management System
 
-Introduction:
+## Project Overview
 
-The project is a server-based application designed to manage and control a network of bots. 
-The server allows users to add and remove bots, send commands to control them, and retrieve data from them. 
-This system facilitates seamless interaction with multiple bots, making it ideal for use cases that require 
-autonomous operations or monitoring across a fleet of devices.
+A server-based application developed in C++ for managing and controlling a network of autonomous bots.
 
-Purpose:
+The system provides centralized control for multiple bots and supports bot management, command execution, status monitoring, data retrieval, and data logging.
 
-The primary purpose of this project is to provide a robust framework for managing bots and collecting data from 
-them in a controlled environment. It allows for dynamic bot management, enabling users to:
+## Key Features
 
-    1. Add and Remove Bots: The server can easily handle the addition and removal of bots, giving flexibility in
-    managing the bot network.
-    2. Send Commands: Users can send commands to specific bots or broadcast commands to all active bots.
-    This feature provides central control for executing instructions remotely.
-    3. Display Active Bots: The system provides an overview of all active bots, showing their current status and location,
-    ensuring users can keep track of their operations.
-    4. Request Data: At any point, users can request the data collected by the bots, such as information on the 
-    terrain or environment the bots are interacting with.
-    5. Store Commands: All commands issued to the bots are logged, with individual and combined commands being stored
-    in separate files for record-keeping and debugging purposes.
-    6. Unique Data Files per Bot: Each bot has its own dedicated data file that logs specific information related to 
-    that bot's activities, ensuring that no data is lost or overwritten.
+- Add and remove bots dynamically
+- Send commands to individual bots
+- Broadcast commands to all active bots
+- Display active bots and their status and location
+- Retrieve data collected by bots
+- Maintain separate data files for individual bots
+- Store commands for record-keeping and debugging
+- Manage bot information using an AVL tree
 
-This project is designed to provide a comprehensive tool for managing autonomous bots, with an emphasis 
-on control, tracking, and data management.
+## System Architecture
 
-Run Commands:
+The system uses a central server to communicate with multiple bots.
 
-1. Open Terminal
-2. Write the following commands:
-    - mingw32-make
-    - ./server
+```text
+                    SERVER
+                  /   |   \
+                 /    |    \
+              BOT 1  BOT 4  BOT 6
+                |      |      |
+              BOT 2  BOT 5  BOT 7
+                |             |
+              BOT 3          BOT 8
+Data Structures
 
-Functionality:
+The project applies data structures and object-oriented programming concepts, including:
 
-    1. You can add bots and remove bots
-    2. Send commands to control bots 
-        - Commands can be sent to individual or all the bots
-    3. Information of all active bots can be displayed.
-    4. Current data collected by bots can be requested at any point in time.
-        - It returns what terrain bot has found.
-    5. Individual commands and Combined Commands are stored in their respected file
-    6. Each bot has its own unique data file
+AVL Trees
+Linked Lists
+Classes and Objects
+Dynamic Data Management
+File Handling
+
+The AVL tree is used for efficient organization and retrieval of bot-related information.
+
+Command Management
+
+The server supports commands directed to:
+
+A specific bot
+All active bots
+
+Issued commands are stored for tracking and debugging.
+
+Data Management
+
+Each bot has its own dedicated data file. This allows information collected by individual bots to be stored separately without overwriting data from other bots.
+
+Project Structure
+.
+├── main.cpp
+├── Makefile
+├── readme.txt
+├── header/
+│   ├── avl.h
+│   ├── bot.h
+│   ├── linkedlist.h
+│   ├── server.h
+│   └── utils.h
+└── src/
+    ├── avl.cpp
+    ├── bot.cpp
+    ├── linkedlist.cpp
+    ├── server.cpp
+    └── utils.cpp
+Technologies
+C++
+Object-Oriented Programming
+Data Structures
+AVL Trees
+Linked Lists
+File Handling
+Server-Based Bot Management
+Project Documentation
+
+The repository includes the project report describing the system architecture, implementation, outputs, and project contributions.
+
+Project Focus
+
+Server Communication → Bot Management → Command Execution → Data Collection → Data Logging → Efficient Data Organization
